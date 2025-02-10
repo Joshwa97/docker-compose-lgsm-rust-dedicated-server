@@ -3,8 +3,8 @@ volumes:
 services:
   lgsm:
     # Limiting server resources
-    cpu_count: 2
-    mem_limit: 8gb
+    cpu_count: 6
+    mem_limit: 16gb
     # other stuf
     init: true
     user: root
@@ -68,7 +68,7 @@ services:
       - ./utils/:/utils/:ro
       - ./rust-environment.sh:/rust-environment.sh:ro
     ports:
-      - ${RUST_RCON_INTERFACE:-127.0.0.1}:28016:28016
+      - 28016:28016
       - 0.0.0.0:28015:28015/udp
       - 28082:28082/tcp
     healthcheck:
