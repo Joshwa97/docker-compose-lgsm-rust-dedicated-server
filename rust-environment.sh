@@ -4,8 +4,8 @@
 
 # settings take effect every time the server boots
 
-#maxplayers=50
-#servername="Rust"
+maxplayers=200
+servername="Voidbyte Survival+ | Modded Rust"
 
 # uncomment this to enable EAC, for Linux clients this must be commented out
 #ENABLE_RUST_EAC=1
