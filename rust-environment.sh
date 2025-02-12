@@ -19,13 +19,13 @@ servername="Voidbyte Survival+ | Modded Rust"
 #     If you change this value, then a new map will be generated on next boot.
 #     The old map will still persist unless `./admin-actions/regenerate-map.sh`
 #     is called which deletes all maps
-#seed=1
+seed=75623
 
 # range: unknown, used to recover a known setting from an existing map.
 #salt=
 
 # default: 3000, range: 1000-6000, map size in meters.
-#worldsize=3000
+worldsize=5000
 
 ####################
 # CUSTOM MAP SUPPORT
