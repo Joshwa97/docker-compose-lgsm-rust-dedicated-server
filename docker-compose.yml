@@ -71,9 +71,6 @@ services:
       - 28016:28016/tcp
       - 178.63.98.220:28015:28015/udp
       - 28082:28082/tcp
-    networks:
-      rustnetwork:
-        ipv4_address: 192.168.1.100
     healthcheck:
       test: ["CMD", "pgrep", "RustDedicated"]
       interval: 10s
@@ -81,9 +78,3 @@ services:
       start_period: 15m
 #    devices:
 #      - /dev/dri:/dev/dri
-networks:
-  rustnetwork:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 192.168.1.0/24
