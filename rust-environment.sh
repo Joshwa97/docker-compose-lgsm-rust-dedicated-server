@@ -6,7 +6,7 @@
 
 maxplayers=200
 servername="Voidbyte Survival+ | Modded Rust"
-
+ip="178.63.98.220"
 # uncomment this to enable EAC, for Linux clients this must be commented out
 ENABLE_RUST_EAC=1
 
