@@ -71,6 +71,7 @@ services:
       - 28016:28016/tcp
       - 178.63.98.220:28015:28015/udp
       - 28082:28082/tcp
+    network_mode: "host"
     healthcheck:
       test: ["CMD", "pgrep", "RustDedicated"]
       interval: 10s
