@@ -68,11 +68,12 @@ services:
       - ./utils/:/utils/:ro
       - ./rust-environment.sh:/rust-environment.sh:ro
     ports:
-      - 0.0.0.0:28016:28016/tcp
-      - 178.63.98.220:28015:28015/udp
+      - 28016:28016/tcp
+      - 28015:28015/udp
       - 28082:28082/tcp
-    environment:
-      - IP=178.63.98.220
+    networks:
+      rustnetwork:
+        ipv4_address: 192.168.1.100
     healthcheck:
       test: ["CMD", "pgrep", "RustDedicated"]
       interval: 10s
@@ -80,3 +81,9 @@ services:
       start_period: 15m
 #    devices:
 #      - /dev/dri:/dev/dri
+networks:
+  rustnetwork:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24
