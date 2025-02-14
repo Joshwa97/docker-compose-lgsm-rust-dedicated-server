@@ -71,6 +71,8 @@ services:
       - 0.0.0.0:28016:28016/tcp
       - 178.63.98.220:28015:28015/udp
       - 28082:28082/tcp
+    environment:
+      - IP=178.63.98.220
     healthcheck:
       test: ["CMD", "pgrep", "RustDedicated"]
       interval: 10s
