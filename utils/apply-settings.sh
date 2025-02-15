@@ -89,12 +89,12 @@ function apply-generated-map-settings() {
   fi
 }
 
-# servername="${servername:-Rust}"
-# apply-setting "$lgsm_cfg" servername "servername=\"$servername\""
-# if [ -z "$maxplayers" ] || ! check-range "$maxplayers" 1 1000000; then
-#   maxplayers=50
-# fi
-# apply-setting "$lgsm_cfg" maxplayers "maxplayers=$maxplayers"
+servername="${servername:-Rust}"
+apply-setting "$lgsm_cfg" servername "servername=\"$servername\""
+if [ -z "$maxplayers" ] || ! check-range "$maxplayers" 1 1000000; then
+  maxplayers=50
+fi
+apply-setting "$lgsm_cfg" maxplayers "maxplayers=$maxplayers"
 
 # Custom Map Support
 function start-custom-map-server() (
@@ -146,7 +146,7 @@ if [ -n "${CUSTOM_MAP_URL:-}" ] || ls -1 /custom-maps/*.map &> /dev/null; then
   fi
   # custom map found so disabling map settings.
   cat >> "$lgsm_cfg" <<EOF
-fn_parms(){ parms="-batchmode +app.listenip 0.0.0.0 +app.port \${appport} +server.ip 0.0.0.0} +server.port \${port} +server.tickrate \${tickrate} +server.hostname \"\${servername}\" +server.identity \"\${selfname}\" +server.maxplayers \${maxplayers} +levelurl '${CUSTOM_MAP_URL}' +server.saveinterval \${saveinterval} +rcon.web \${rconweb} +rcon.ip 0.0.0.0 +rcon.port \${rconport} +rcon.password \"\${rconpassword}\" -logfile"; }
+fn_parms(){ parms="-batchmode +app.listenip \${ip} +app.port \${appport} +server.ip \${ip} +server.port \${port} +server.tickrate \${tickrate} +server.hostname \"\${servername}\" +server.identity \"\${selfname}\" +server.maxplayers \${maxplayers} +levelurl '${CUSTOM_MAP_URL}' +server.saveinterval \${saveinterval} +rcon.web \${rconweb} +rcon.ip \${ip} +rcon.port \${rconport} +rcon.password \"\${rconpassword}\" -logfile"; }
 EOF
   echo '    Custom Map URL for clients: '"${CUSTOM_MAP_URL}"
 else
