@@ -1,7 +1,7 @@
 ######################
 # SERVER BOOT SETTINGS
 ######################
-
+export ip="0.0.0.0"
 # settings take effect every time the server boots
 
 maxplayers=200
