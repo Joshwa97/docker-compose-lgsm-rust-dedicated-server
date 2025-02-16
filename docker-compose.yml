@@ -74,7 +74,7 @@ services:
       - 28015:28015/tcp
       - 28015:28015/udp
       - 28082:28082/tcp
-      - 27015:27015/tcp
+      - 28017:28017/udp
     healthcheck:
       test: ["CMD", "pgrep", "RustDedicated"]
       interval: 10s
