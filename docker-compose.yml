@@ -12,6 +12,7 @@ services:
     # Do not change this from restart: always. Maintenance scripts assume
     # docker-compose auto restarts the rust server.
     restart: always
+    network_mode: "host"
     command:
       - /bin/bash
       - -exc
@@ -67,9 +68,6 @@ services:
       - ./harmony-config:/home/linuxgsm/serverfiles/HarmonyConfig
       - ./utils/:/utils/:ro
       - ./rust-environment.sh:/rust-environment.sh:ro
-    networks:
-      rustnetwork:
-        ipv4_address: 192.168.1.100
     ports:
       - 28016:28016/tcp
       - 28015:28015/udp
@@ -81,9 +79,3 @@ services:
       start_period: 15m
 #    devices:
 #      - /dev/dri:/dev/dri
-networks:
-  rustnetwork:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 192.168.1.0/24
