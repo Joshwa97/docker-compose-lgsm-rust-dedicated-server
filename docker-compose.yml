@@ -70,8 +70,11 @@ services:
       - ./rust-environment.sh:/rust-environment.sh:ro
     ports:
       - 28016:28016/tcp
+      - 28016:28016/udp
+      - 28015:28015/tcp
       - 28015:28015/udp
       - 28082:28082/tcp
+      - 27015:27015/tcp
     healthcheck:
       test: ["CMD", "pgrep", "RustDedicated"]
       interval: 10s
