@@ -29,9 +29,6 @@ fi
 # remove passwordless sudo access since setup is complete
 sudo rm -f /etc/sudoers.d/lgsm
 
-# lgsm_cfg=lgsm/config-lgsm/rustserver/rustserver.cfg
-# grep -F -- /utils/apply-settings.sh "$lgsm_cfg" ||
-#   echo 'if [ ! "$1" = docker ]; then /utils/apply-settings.sh; source lgsm/config-lgsm/rustserver/rustserver.cfg docker; fi' >> "$lgsm_cfg"
 /utils/get-or-update-plugins.sh
 /utils/monitor-rust-server.sh &
 
