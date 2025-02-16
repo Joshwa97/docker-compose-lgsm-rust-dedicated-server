@@ -67,9 +67,12 @@ services:
       - ./harmony-config:/home/linuxgsm/serverfiles/HarmonyConfig
       - ./utils/:/utils/:ro
       - ./rust-environment.sh:/rust-environment.sh:ro
+    networks:
+      rustnetwork:
+        ipv4_address: 192.168.1.100
     ports:
       - 28016:28016/tcp
-      - 0.0.0.0:28015:28015/udp
+      - 28015:28015/udp
       - 28082:28082/tcp
     healthcheck:
       test: ["CMD", "pgrep", "RustDedicated"]
@@ -78,3 +81,9 @@ services:
       start_period: 15m
 #    devices:
 #      - /dev/dri:/dev/dri
+networks:
+  rustnetwork:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24
