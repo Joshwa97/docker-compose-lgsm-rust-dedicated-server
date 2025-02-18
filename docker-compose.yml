@@ -3,8 +3,8 @@ volumes:
 services:
   lgsm:
     # Limiting server resources
-    cpu_count: 6
-    mem_limit: 16gb
+    cpu_count: 10
+    mem_limit: 32gb
     # other stuf
     init: true
     user: root
