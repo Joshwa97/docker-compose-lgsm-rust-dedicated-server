@@ -17,7 +17,7 @@ ENABLE_RUST_EAC=1
 #     If you change this value, then a new map will be generated on next boot.
 #     The old map will still persist unless `./admin-actions/regenerate-map.sh`
 #     is called which deletes all maps
-seed=75623
+seed=97845611
 
 # range: unknown, used to recover a known setting from an existing map.
 #salt=
